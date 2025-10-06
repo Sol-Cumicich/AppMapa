@@ -10,6 +10,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use("/",express.static("public"))
 
+app.get("/", (req, res) => {
+  res.sendFile("index.html", { root: "public" });
+});
 app.use("/puntos", PuntosRouter)
 app.use("/api/puntos", PuntosApiRouter)
 app.use("/usuarios", UsuariosRouter)
